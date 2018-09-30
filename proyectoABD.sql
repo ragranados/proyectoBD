@@ -78,3 +78,42 @@ ALTER TABLE prodxproveedor ADD PRIMARY KEY(pkfk_id_producto,pkfk_id_proveedor);
 -- Agregando llaves foraneas a la tabla que relaciona producto y venta
 ALTER TABLE prodxproveedor ADD CONSTRAINT fk_from_producto2 FOREIGN KEY (pkfk_id_producto) REFERENCES producto(id_producto);
 ALTER TABLE prodxproveedor ADD CONSTRAINT fk_from_proveedor FOREIGN KEY (pkfk_id_proveedor) REFERENCES proveedor(id_proveedor);
+
+INSERT INTO categoria(nombre) VALUES('Juguetes');
+INSERT INTO categoria(nombre) VALUES('Jardin');
+INSERT INTO categoria(nombre) VALUES('Ocio');
+INSERT INTO categoria(nombre) VALUES('Articulos Personales');
+INSERT INTO categoria(nombre) VALUES('Productos Congelados');
+INSERT INTO categoria(nombre) VALUES('Utiles escolares');
+INSERT INTO categoria(nombre) VALUES('Productos de cocina');
+INSERT INTO categoria(nombre) VALUES('Productos Decorativos');
+INSERT INTO categoria(nombre) VALUES('Herramientas');
+
+INSERT INTO marca(nombreMarca) VALUES ('Hershey');
+INSERT INTO marca(nombreMarca) VALUES ('Lays');
+INSERT INTO marca(nombreMarca) VALUES ('JS Gardens');
+INSERT INTO marca(nombreMarca) VALUES ('GrandmasKitchen');
+INSERT INTO marca(nombreMarca) VALUES ('Colgate');
+INSERT INTO marca(nombreMarca) VALUES ('Oral-B');
+INSERT INTO marca(nombreMarca) VALUES ('Moyu');
+INSERT INTO marca(nombreMarca) VALUES ('Sheng-shou');
+INSERT INTO marca(nombreMarca) VALUES ('Martin Congelados');
+INSERT INTO marca(nombreMarca) VALUES ('Scribe');
+INSERT INTO marca(nombreMarca) VALUES ('Stanley');
+
+INSERT INTO empleado(nombre,fecha_entrada,id_supervisor) VALUES ('Juan Martinez','2018-08-21',null);
+INSERT INTO empleado(nombre,fecha_entrada,id_supervisor) VALUES ('Raul Granados', '2017-12-20',1);
+INSERT INTO empleado(nombre,fecha_entrada,id_supervisor) VALUES ('Daniel Dominguez','2018-02-24',1);
+INSERT INTO empleado(nombre,fecha_entrada,id_supervisor) VALUES ('Astrid Guzman','2017-02-10',1);
+INSERT INTO empleado(nombre,fecha_entrada,id_supervisor) VALUES ('Jorge Miranda','2018-05-04',1);
+INSERT INTO empleado(nombre,fecha_entrada,id_supervisor) VALUES('Josue Gonzales','2018-05-20',1);
+
+INSERT INTO venta(fk_id_empleado) VALUES (2);
+INSERT INTO venta(fk_id_empleado) VALUES (3);
+INSERT INTO venta(fk_id_empleado) VALUES (1);
+INSERT INTO venta(fk_id_empleado) VALUES (6);
+INSERT INTO venta(fk_id_empleado) VALUES (5);
+INSERT INTO venta(fk_id_empleado) VALUES (2);
+INSERT INTO venta(fk_id_empleado) VALUES (3);
+INSERT INTO venta(fk_id_empleado) VALUES (4);
+INSERT INTO venta(fk_id_empleado) VALUES (2);
