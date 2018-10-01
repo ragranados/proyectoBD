@@ -117,3 +117,39 @@ INSERT INTO venta(fk_id_empleado) VALUES (2);
 INSERT INTO venta(fk_id_empleado) VALUES (3);
 INSERT INTO venta(fk_id_empleado) VALUES (4);
 INSERT INTO venta(fk_id_empleado) VALUES (2);
+
+
+--Creando procesos almacenados 
+
+CREATE PROCEDURE spEmpleados
+AS
+SELECT * FROM empleado
+GO
+
+EXECUTE spEmpleados;
+
+CREATE PROCEDURE spTopVentas
+AS 
+SELECT TOP 5 
+e.nombre, e.fecha_entrada, count(v.id_venta) as 'numeroDeVentas' FROM
+empleado e JOIN venta v
+ON e.id_empleado = v.fk_id_empleado
+GROUP BY e.nombre, e.fecha_entrada
+ORDER BY numeroDeVentas ASC
+GO
+
+--Creando vistas
+CREATE VIEW vwVentaEmpleados AS
+SELECT * FROM 
+empleado JOIN venta
+ON empleado.id_empleado = venta.fk_id_empleado;
+
+SELECT * FROM vwVentaEmpleados;
+
+CREATE VIEW vwProductosVendidos AS
+SELECT p.nombre, p.precio, sum(pv.cant) as 'cantidadVendida' FROM 
+prodxventa pv JOIN producto p
+ON pv.pkfk_id_producto = p.id_producto
+GROUP BY p.nombre, p.precio;
+
+SELECT * FROM vwProductosVendidos
